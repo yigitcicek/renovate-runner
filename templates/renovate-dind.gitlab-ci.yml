@@ -1,0 +1,11 @@
+include: '/templates/_common.gitlab-ci.yml'
+
+image: renovate/renovate:23.89.3-slim
+
+services:
+  - docker:19.03.13-dind
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_HOST: tcp://docker:2375

@@ -1,5 +1,3 @@
-image: renovate/renovate:23.89.3-slim
-
 variables:
   RENOVATE_BASE_DIR: $CI_PROJECT_DIR/renovate
   RENOVATE_ENDPOINT: $CI_API_V4_URL
@@ -14,12 +12,7 @@ variables:
   RENOVATE_IGNORE_PR_AUTHOR: 'true'
   RENOVATE_EXTENDS: 'github>whitesource/merge-confidence:beta'
   LOG_LEVEL: debug
-  DOCKER_DRIVER: overlay2
-  DOCKER_TLS_CERTDIR: ""
-  DOCKER_HOST: tcp://docker:2375
 
-services:
-  - docker:19.03.13-dind
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}-renovate
@@ -33,4 +26,3 @@ renovate:
     - schedules
   script:
     - renovate $RENOVATE_EXTRA_FLAGS
-

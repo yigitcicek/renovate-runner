@@ -37,7 +37,7 @@ Create a `.gitlab-ci.yml` file in the repository like the following:
 ```yaml
 include:
   - project: 'renovate-bot/renovate-runner'
-    file: '/templates/.gitlab-ci.yml'
+    file: '/templates/renovate-dind.gitlab-ci.yml'
 
 variables:
   LOG_LEVEL: debug
@@ -50,6 +50,15 @@ renovate:on-schedule:
 
 ```
 
+Alternatively, if you cannot use privileged runners, include the following template instead:
+
+```yaml
+include:
+  - project: 'renovate-bot/renovate-runner'
+    file: '/templates/renovate.gitlab-ci.yml'
+
+```
+
 ## Configure the Schedule
 
 Add a schedule (`CI / CD` > `Schedules`) to run Renovate regularly.
@@ -59,6 +68,6 @@ The following sample run it every hour on third minute: `3 * * * *`.
 
 ## Other config options
 
-We've changed some renovate defaults for GitLab to better reflect the App's default behavior, so please see [here](./templates/.gitlab-ci.yml#L3) for changed options.
+We've changed some renovate defaults for GitLab to better reflect the App's default behavior, so please see [here](./templates/_common.gitlab-ci.yml#L1) for changed options.
 
 For other self-hosted gitlab samples you can checkout [here](https://github.com/renovatebot/docker-renovate/blob/master/docs/gitlab.md).
