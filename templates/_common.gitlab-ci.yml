@@ -3,7 +3,6 @@ variables:
   RENOVATE_ENDPOINT: $CI_API_V4_URL
   RENOVATE_PLATFORM: gitlab
   RENOVATE_GIT_AUTHOR: Renovate Bot <bot@renovateapp.com>
-  RENOVATE_AUTODISCOVER: 'true'
   RENOVATE_ONBOARDING_CONFIG: '{"$$schema": "https://docs.renovatebot.com/renovate-schema.json", "extends": ["config:base"] }'
   RENOVATE_OPTIMIZE_FOR_DISABLED: 'true'
   RENOVATE_REPOSITORY_CACHE: 'true'
