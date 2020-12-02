@@ -38,16 +38,6 @@ Create a `.gitlab-ci.yml` file in the repository like the following:
 include:
   - project: 'renovate-bot/renovate-runner'
     file: '/templates/renovate-dind.gitlab-ci.yml'
-
-variables:
-  LOG_LEVEL: debug
-
-renovate:on-schedule:
-  only:
-    - schedules
-  script:
-    - renovate $RENOVATE_EXTRA_FLAGS
-
 ```
 
 Alternatively, if you cannot use privileged runners, include the following template instead:
@@ -56,7 +46,6 @@ Alternatively, if you cannot use privileged runners, include the following templ
 include:
   - project: 'renovate-bot/renovate-runner'
     file: '/templates/renovate.gitlab-ci.yml'
-
 ```
 
 ## Configure the Schedule
