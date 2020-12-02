@@ -5,6 +5,7 @@
     ":dependencyDashboard"
   ],
   "assignees": ["rarkins", "viceice"],
+  "gitLabAutomerge": true,
   "packageRules": [
     {
       "packageNames": [
