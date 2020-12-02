@@ -1,6 +1,6 @@
 include: '/templates/_common.gitlab-ci.yml'
 
-image: renovate/renovate:23.91.0-slim
+image: renovate/renovate:23.92.0-slim
 
 services:
   - docker:19.03.14-dind
