@@ -1,0 +1,8 @@
+include: '/templates/.gitlab-ci.yml'
+
+
+renovate:dry-run:
+  except:
+    - schedules
+  script:
+    - renovate --dry-run $RENOVATE_EXTRA_FLAGS
