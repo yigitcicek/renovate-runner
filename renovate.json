@@ -4,6 +4,7 @@
     "config:base",
     ":dependencyDashboard"
   ],
+  "assignees": ["rarkins", "viceice"],
   "packageRules": [
     {
       "packageNames": [
