@@ -46,12 +46,15 @@ include:
 variables:
   LOG_LEVEL: debug
 
+stages:
+  - deploy
+
 renovate:
+  stage: deploy
   only:
     - schedules
   script:
     - renovate $RENOVATE_EXTRA_FLAGS
-
 ```
 
 Alternatively, if you cannot use privileged runners, include the following template instead:
