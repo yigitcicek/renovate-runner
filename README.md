@@ -46,7 +46,7 @@ include:
 variables:
   LOG_LEVEL: debug
 
-renovate:on-schedule:
+renovate:
   only:
     - schedules
   script:
