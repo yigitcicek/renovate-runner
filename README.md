@@ -28,11 +28,11 @@ The default settings will run against any projects which satisfies these two cha
 
 If you wish for your bot to run against *every* project which the `RENOVATE_TOKEN` PAT has access to, including onboarding any projects which don't yet have a config, then add this variable: `RENOVATE_EXTRA_FLAGS=`: `--autodiscover=true`.
 
-If you wish for your bot to run against *every* project which the `RENOVATE_TOKEN` PAT has access to, but which already have a `renovate.json` or similar config file, then add this variable: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --onboarding=false`. This will mean no new projects will be onboarded.
+However, we recommend you apply an `autodiscoverFilter` value so that the bot does not run on any project it gets invited to and only those you want: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --autodiscover-filter=group1/*`.
+
+If you wish for your bot to run against *every* project which the `RENOVATE_TOKEN` PAT has access to, but which already have a `renovate.json` or similar config file, then add this variable: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --onboarding=false --autodiscover-filter=group1/*`. This will mean no new projects will be onboarded.
 
 If you wish to manually specify which projects that your bot runs again, then add this variable with a space-delimited set of project names: `RENOVATE_EXTRA_FLAGS`: `group1/repo5 user3/repo1`.
-
-If you wish for your bot to run against *every* project which the `RENOVATE_TOKEN` PAT has access to, but specify a filter for which of those projects to run against, then add this variable: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --autodiscover-filter=group1/*`.
 
 ## Create a GitLab CI file
 
