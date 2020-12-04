@@ -42,22 +42,9 @@ Create a `.gitlab-ci.yml` file in the repository like the following:
 include:
   - project: 'renovate-bot/renovate-runner'
     file: '/templates/renovate-dind.gitlab-ci.yml'
-
-variables:
-  LOG_LEVEL: debug
-
-stages:
-  - deploy
-
-renovate:
-  stage: deploy
-  only:
-    - schedules
-  script:
-    - renovate $RENOVATE_EXTRA_FLAGS
 ```
 
-Alternatively, if you cannot use privileged runners, include the following template instead:
+Alternatively, if you cannot use the gitlab.com hosted or self-hosted privileged runners, include the following template instead:
 
 ```yaml
 include:
@@ -65,12 +52,29 @@ include:
     file: '/templates/renovate.gitlab-ci.yml'
 ```
 
+By default our pipeline only runs on schedules.
+If you want it to run on other events checkout [here](https://docs.gitlab.com/ee/ci/yaml/README.html#onlyexcept-basic).
+
+Example for run on schedules and pushes:
+```yaml
+include:
+  - project: 'renovate-bot/renovate-runner'
+    file: '/templates/renovate-dind.gitlab-ci.yml'
+
+renovate:
+  only:
+    - schedules
+    - pushes
+``` 
+
 ## Configure the Schedule
 
 Add a schedule (`CI / CD` > `Schedules`) to run Renovate regularly.
 Best practise it to run it hourly.
 
 The following sample run it every hour on third minute: `3 * * * *`.
+
+Because the default pipeline only runs on schedules, you need to use the `play` button of schedule to trigger a manual run.
 
 ## Other config options
 
