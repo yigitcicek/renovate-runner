@@ -22,15 +22,13 @@ It is also recommended to configure a [GitHub.com Personal Access Token](https:/
 Without such a token, github.com's API will rate limit requests and make such lookups unreliable.
 
 Finally, you need to decide how your bot should decide which projects to run against.
-The default settings will run against any projects which satisfies these two characteristics:
-- The bot's token has Developer or higher access rights
-- The project has a Renovate configuration file already (e.g. `renovate.json`)
+By default renovate won't find any repo, you need to choose one of the following options for `RENOVATE_EXTRA_FLAGS`.
 
-If you wish for your bot to run against *every* project which the `RENOVATE_TOKEN` PAT has access to, including onboarding any projects which don't yet have a config, then add this variable: `RENOVATE_EXTRA_FLAGS=`: `--autodiscover=true`.
+If you wish for your bot to run against *every* project which the `RENOVATE_TOKEN` PAT has access to, and onboard any projects which don't yet have a config, then add this variable: `RENOVATE_EXTRA_FLAGS=`: `--autodiscover=true`.
 
-However, we recommend you apply an `autodiscoverFilter` value so that the bot does not run on any project it gets invited to and only those you want: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --autodiscover-filter=group1/*`.
+However, we recommend you apply an `autodiscoverFilter` value like the following so that the bot does not run on any stranger's project it gets invited to: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --autodiscover-filter=group1/*`.
 
-If you wish for your bot to run against *every* project which the `RENOVATE_TOKEN` PAT has access to, but which already have a `renovate.json` or similar config file, then add this variable: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --onboarding=false --autodiscover-filter=group1/*`. This will mean no new projects will be onboarded.
+If you wish for your bot to run against any project which the `RENOVATE_TOKEN` PAT has access to, but which already have a `renovate.json` or similar config file, then add this variable: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --onboarding=false --autodiscover-filter=group1/*`. This will mean no new projects will be onboarded.
 
 If you wish to manually specify which projects that your bot runs again, then add this variable with a space-delimited set of project names: `RENOVATE_EXTRA_FLAGS`: `group1/repo5 user3/repo1`.
 
