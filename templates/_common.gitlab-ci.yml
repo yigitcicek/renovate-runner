@@ -21,6 +21,7 @@ cache:
 
 renovate:
   stage: deploy
+  resource_group: production
   only:
     - schedules
   script:
