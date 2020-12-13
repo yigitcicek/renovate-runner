@@ -2,6 +2,8 @@ include: '/templates/renovate-dind.gitlab-ci.yml'
 
 
 renovate:dry-run:
+  only:
+    - branches@renovate-bot/renovate-runner
   except:
     - schedules
   script:
