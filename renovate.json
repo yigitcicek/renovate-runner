@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
-    ":dependencyDashboard"
+    ":dependencyDashboard",
+    "docker:enableMajor"
   ],
   "assignees": ["rarkins", "viceice"],
   "gitLabAutomerge": true,
