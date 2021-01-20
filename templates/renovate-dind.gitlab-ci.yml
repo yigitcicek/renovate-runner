@@ -3,7 +3,7 @@ include: '/templates/_common.gitlab-ci.yml'
 image: renovate/renovate:24.26.0-slim
 
 services:
-  - docker:20.10.1-dind
+  - docker:20.10.2-dind
 
 variables:
   DOCKER_DRIVER: overlay2
