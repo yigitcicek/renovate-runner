@@ -10,7 +10,9 @@ variables:
   RENOVATE_ONBOARDING: 'false'
   RENOVATE_IGNORE_PR_AUTHOR: 'true'
   RENOVATE_EXTENDS: 'github>whitesource/merge-confidence:beta'
-  LOG_LEVEL: debug
+  RENOVATE_LOG_FILE: renovate-log.ndjson
+  RENOVATE_LOG_FILE_LEVEL: debug
+  LOG_LEVEL: info
 
 
 cache:
@@ -26,3 +28,8 @@ renovate:
     - schedules
   script:
     - renovate $RENOVATE_EXTRA_FLAGS
+  artifacts:
+    when: always
+    expire_in: 1d
+    paths:
+      - "$RENOVATE_LOG_FILE"
