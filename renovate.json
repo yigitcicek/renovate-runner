@@ -1,18 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
-    ":dependencyDashboard",
-    "docker:enableMajor"
+    "github>renovatebot/.github"
   ],
-  "assignees": ["rarkins", "viceice"],
   "gitLabAutomerge": true,
   "packageRules": [
     {
-      "packageNames": [
+      "description": "Automerge renovate minor and patch updates",
+      "matchPackageNames": [
         "renovate/renovate"
       ],
-      "updateTypes": [
+      "matchUpdateTypes": [
         "minor",
         "patch"
       ],
@@ -20,14 +18,12 @@
       "branchTopic": "{{{depNameSanitized}}}-{{{currentValue}}}"
     },
     {
-      "packageNames": [
-        "docker"
-      ],
-      "updateTypes": [
-        "patch"
+      "description": "Allow updates after 3 days (exclude renovate)",
+      "excludePackageNames": [
+        "renovate/renovate"
       ],
       "separateMinorPatch": true,
-      "automerge": true
+      "stabilityDays": 3
     }
   ],
   "gitlabci": {
