@@ -14,11 +14,11 @@ variables:
   RENOVATE_LOG_FILE_LEVEL: debug
   LOG_LEVEL: info
 
-
-cache:
-  key: ${CI_COMMIT_REF_SLUG}-renovate
-  paths:
-    - $CI_PROJECT_DIR/renovate
+default:
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-renovate
+    paths:
+      - $CI_PROJECT_DIR/renovate
 
 
 renovate:
