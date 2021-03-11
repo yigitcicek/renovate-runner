@@ -1,11 +1,13 @@
 include: '/templates/_common.gitlab-ci.yml'
 
-image: renovate/renovate:24.78.4-slim@sha256:cea553e289ba4d3330ae700f6131a22e18547dbbd0b85eba4ff1f57be0387144
+image: renovate/renovate:24.78.6-slim@sha256:c56848efa853a3e32ad11d387b016beef0b0f7e69266479c3c9cba3b893f5652
 
 services:
   - docker:20.10.5-dind@sha256:551525fd35e48d04f8b44f23db5af2b7db6251f92698d77a857eccacfa2724fe
 
 variables:
   DOCKER_DRIVER: overlay2
-  DOCKER_TLS_CERTDIR: ""
-  DOCKER_HOST: tcp://docker:2375
+  DOCKER_HOST: tcp://docker:2376
+  DOCKER_TLS_VERIFY: 1
+  DOCKER_TLS_CERTDIR: /certs
+  DOCKER_CERT_PATH: /certs/client
