@@ -42,6 +42,17 @@ include:
     file: '/templates/renovate-dind.gitlab-ci.yml'
 ```
 
+If you are using a custom gitlab kubernetes runner you probalby need to downgrade the docker dind service because of [containerd/containerd#4837](https://github.com/containerd/containerd/issues/4837)
+
+```yaml
+include:
+  - project: 'renovate-bot/renovate-runner'
+    file: '/templates/renovate-dind.gitlab-ci.yml'
+
+services:
+  - docker:19.03.15-dind
+```
+
 Alternatively, if you cannot use the gitlab.com hosted or self-hosted privileged runners, include the following template instead:
 
 ```yaml
@@ -79,3 +90,5 @@ Because the default pipeline only runs on schedules, you need to use the `play` 
 We've changed some renovate defaults for GitLab to better reflect the App's default behavior, so please see [here](./templates/_common.gitlab-ci.yml#L1) for changed options.
 
 For other self-hosted gitlab samples you can checkout [here](https://github.com/renovatebot/docker-renovate/blob/master/docs/gitlab.md).
+
+If you are using a self-hosted runner, lpeas checkout the gitlab [docs](https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#docker) for Docker dind configuration.
