@@ -91,4 +91,4 @@ We've changed some renovate defaults for GitLab to better reflect the App's defa
 
 For other self-hosted gitlab samples you can checkout [here](https://github.com/renovatebot/docker-renovate/blob/master/docs/gitlab.md).
 
-If you are using a self-hosted runner, lpeas checkout the gitlab [docs](https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#docker) for Docker dind configuration.
+If you are using a self-hosted runner, please checkout the gitlab [docs](https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#docker) for Docker dind configuration.
