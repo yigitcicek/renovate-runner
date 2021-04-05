@@ -42,7 +42,7 @@ include:
     file: '/templates/renovate-dind.gitlab-ci.yml'
 ```
 
-If you are using a custom gitlab kubernetes runner you probalby need to downgrade the docker dind service because of [containerd/containerd#4837](https://github.com/containerd/containerd/issues/4837)
+If you are using a custom gitlab kubernetes runner you probably need to downgrade the docker dind service because of [containerd/containerd#4837](https://github.com/containerd/containerd/issues/4837)
 
 ```yaml
 include:
