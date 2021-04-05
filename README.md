@@ -12,7 +12,7 @@ You will need to:
 ## Create a new runner Project
 
 We recommend you use a new and dedicated private project to host the Renovate runner, however a public project with private CI logs should still be safe.
-Currently one advantage of public projecs is that CI minutes are not restricted however the same restrictions as private projects will soon apply.
+Currently one advantage of public projects is that CI minutes are not restricted however the same restrictions as private projects will soon apply.
 
 ## Configure CI/CD variables
 
