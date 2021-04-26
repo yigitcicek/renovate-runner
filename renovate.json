@@ -6,6 +6,31 @@
   "gitLabAutomerge": true,
   "packageRules": [
     {
+      "description": "Trigger breaking release for major renovate updates",
+      "matchPackageNames": [
+        "renovate/renovate"
+      ],
+      "matchUpdateTypes": ["major"],
+      "semanticCommitType": "feat",
+      "commitMessageSuffix": "BREAKING CHANGE: Major renovate update"
+    },
+    {
+      "description": "Trigger feature release for minor renovate updates",
+      "matchPackageNames": [
+        "renovate/renovate"
+      ],
+      "matchUpdateTypes": ["minor"],
+      "semanticCommitType": "feat"
+    },
+    {
+      "description": "Trigger fix release for patch renovate updates",
+      "matchPackageNames": [
+        "renovate/renovate"
+      ],
+      "matchUpdateTypes": ["patch"],
+      "semanticCommitType": "fix"
+    },
+    {
       "description": "Automerge renovate minor and patch updates",
       "matchPackageNames": [
         "renovate/renovate"

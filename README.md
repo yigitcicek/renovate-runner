@@ -61,6 +61,18 @@ include:
     file: '/templates/renovate.gitlab-ci.yml'
 ```
 
+To prevent unexpected changes in your pipeline, you can pin the version of this template and include it in your renovate updates:
+
+```yaml
+include:
+  - project: 'renovate-bot/renovate-runner'
+    file: '/templates/renovate.gitlab-ci.yml'
+    ref: v1.0.0
+```
+
+Please check this project's [Releases page](https://gitlab.com/renovate-bot/renovate-runner/-/releases)
+to find the latest release tags to reference.
+
 By default our pipeline only runs on schedules.
 If you want it to run on other events checkout [here](https://docs.gitlab.com/ee/ci/yaml/README.html#onlyexcept-basic).
 

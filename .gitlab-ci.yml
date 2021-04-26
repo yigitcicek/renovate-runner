@@ -1,5 +1,9 @@
 include: '/templates/renovate-dind.gitlab-ci.yml'
 
+stages:
+  - test
+  - deploy
+  - release
 
 renovate:dry-run:
   only:
@@ -8,3 +12,13 @@ renovate:dry-run:
     - schedules
   script:
     - renovate --dry-run=true $RENOVATE_EXTRA_FLAGS
+
+release:
+  image: renovate/node:14.16.1
+  stage: release
+  before_script:
+    - npm ci
+  script:
+    - npx --no-install semantic-release
+  only:
+    - master
