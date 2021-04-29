@@ -49,11 +49,16 @@
       ],
       "separateMinorPatch": true,
       "stabilityDays": 3
+    },
+    {
+      "matchPackageNames": ["renovate/node"],
+      "versioning": "node"
     }
   ],
   "gitlabci": {
     "fileMatch": [
       "\\.gitlab-ci\\.yml$"
-    ]
+    ],
+    "pinDigests": true
   }
 }
