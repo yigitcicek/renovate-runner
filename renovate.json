@@ -37,18 +37,6 @@
       "semanticCommitType": "fix"
     },
     {
-      "description": "Automerge renovate minor and patch updates",
-      "matchPackageNames": [
-        "renovate/renovate"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "automerge": true,
-      "branchTopic": "{{{depNameSanitized}}}-{{{currentValue}}}"
-    },
-    {
       "description": "Allow updates after 3 days (exclude renovate)",
       "excludePackageNames": [
         "renovate/renovate"
