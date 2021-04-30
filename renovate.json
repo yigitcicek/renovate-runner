@@ -6,28 +6,34 @@
   "gitLabAutomerge": true,
   "packageRules": [
     {
-      "description": "Trigger breaking release for major renovate updates",
+      "description": "Trigger breaking release for major updates",
       "matchPackageNames": [
-        "renovate/renovate"
+        "docker",
+        "renovate/renovate",
+        "renovate/node"
       ],
       "matchUpdateTypes": ["major"],
       "semanticCommitType": "feat",
-      "commitMessageSuffix": "BREAKING CHANGE: Major renovate update"
+      "commitMessageSuffix": "BREAKING CHANGE: Major update"
     },
     {
-      "description": "Trigger feature release for minor renovate updates",
+      "description": "Trigger feature release for minor updates",
       "matchPackageNames": [
-        "renovate/renovate"
+        "docker",
+        "renovate/renovate",
+        "renovate/node"
       ],
       "matchUpdateTypes": ["minor"],
       "semanticCommitType": "feat"
     },
     {
-      "description": "Trigger fix release for patch renovate updates",
+      "description": "Trigger fix release for patch updates",
       "matchPackageNames": [
-        "renovate/renovate"
+        "docker",
+        "renovate/renovate",
+        "renovate/node"
       ],
-      "matchUpdateTypes": ["patch"],
+      "matchUpdateTypes": ["patch", "digest"],
       "semanticCommitType": "fix"
     },
     {
