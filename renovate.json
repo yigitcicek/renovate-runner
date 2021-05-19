@@ -52,6 +52,11 @@
       "stabilityDays": 1
     },
     {
+      "description": "Schedule digest updates daily",
+      "matchUpdateTypes": ["digest"],
+      "extends": ["schedule:daily"]
+    },
+    {
       "matchPackageNames": ["renovate/node"],
       "versioning": "node"
     }
