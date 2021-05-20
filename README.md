@@ -6,7 +6,7 @@ You will need to:
 
 1. Create a new project to host the runner
 2. Configure credentials using CI variables
-3. Create a new `master` pipeline that includes this project's template
+3. Create a new `main` pipeline that includes this project's template
 4. Set up a schedule to run the pipeline regularly
 
 ## Create a new runner Project
@@ -101,6 +101,6 @@ Because the default pipeline only runs on schedules, you need to use the `play` 
 
 We've changed some renovate defaults for GitLab to better reflect the App's default behavior, so please see [here](./templates/_common.gitlab-ci.yml#L1) for changed options.
 
-For other self-hosted gitlab samples you can checkout [here](https://github.com/renovatebot/docker-renovate/blob/master/docs/gitlab.md).
+For other self-hosted gitlab samples you can checkout [here](https://github.com/renovatebot/docker-renovate/blob/HEAD/docs/gitlab.md).
 
 If you are using a self-hosted runner, please checkout the gitlab [docs](https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#docker) for Docker dind configuration.

@@ -21,4 +21,4 @@ release:
   script:
     - npx --no-install semantic-release
   only:
-    - master
+    - main
