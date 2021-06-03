@@ -1,6 +1,6 @@
 {
   "devDependencies": {
     "semantic-release": "17.4.3",
-    "@semantic-release/gitlab": "6.0.9"
+    "@semantic-release/gitlab": "6.1.0"
   }
 }
