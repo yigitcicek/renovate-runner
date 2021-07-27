@@ -1,4 +1,4 @@
-# renovate-runner
+# Renovate Runner
 
 The intention of this project is to provide a pipeline which is easy to set up and reflects the current app settings as close as possible.
 
@@ -9,7 +9,7 @@ You will need to:
 3. Create a new `main` pipeline that includes this project's template
 4. Set up a schedule to run the pipeline regularly
 
-## Create a new runner Project
+## Create a new Runner project
 
 We recommend you use a new and dedicated private project to host the Renovate runner, however a public project with private CI logs should still be safe.
 Currently one advantage of public projects is that CI minutes are not restricted however the same restrictions as private projects will soon apply.
@@ -42,7 +42,7 @@ include:
     file: '/templates/renovate-dind.gitlab-ci.yml'
 ```
 
-If you are using a custom gitlab kubernetes runner you probably need to downgrade the docker dind service because of [containerd/containerd#4837](https://github.com/containerd/containerd/issues/4837)
+If you are using a custom GitLab Kubernetes runner you probably need to downgrade the Docker DinD service because of [containerd/containerd#4837](https://github.com/containerd/containerd/issues/4837)
 
 ```yaml
 include:
@@ -65,7 +65,7 @@ include:
     file: '/templates/renovate.gitlab-ci.yml'
 ```
 
-To prevent unexpected changes in your pipeline, you can pin the version of this template and include it in your renovate updates:
+To prevent unexpected changes in your pipeline, you can pin the version of this template and include it in your Renovate updates:
 
 ```yaml
 include:
@@ -78,9 +78,10 @@ Please check this project's [Releases page](https://gitlab.com/renovate-bot/reno
 to find the latest release tags to reference.
 
 By default our pipeline only runs on schedules.
-If you want it to run on other events checkout [here](https://docs.gitlab.com/ee/ci/yaml/README.html#onlyexcept-basic).
+If you want it to run on other events, see the [GitLab docs for `only`](https://docs.gitlab.com/ee/ci/yaml/index.html#only--except).
 
-Example for run on schedules and pushes:
+Example to run on schedules and pushes:
+
 ```yaml
 include:
   - project: 'renovate-bot/renovate-runner'
@@ -95,16 +96,15 @@ renovate:
 ## Configure the Schedule
 
 Add a schedule (`CI / CD` > `Schedules`) to run Renovate regularly.
-Best practise it to run it hourly.
 
-The following sample run it every hour on third minute: `3 * * * *`.
+A good practise is to run it hourly. The following runs Renovate on the third minute every hour: `3 * * * *`.
 
 Because the default pipeline only runs on schedules, you need to use the `play` button of schedule to trigger a manual run.
 
 ## Other config options
 
-We've changed some renovate defaults for GitLab to better reflect the App's default behavior, so please see [here](./templates/_common.gitlab-ci.yml#L1) for changed options.
+We've changed some renovate defaults for GitLab to better reflect the app's default behavior, so please see [here](./templates/_common.gitlab-ci.yml#L1) for changed options.
 
-For other self-hosted gitlab samples you can checkout [here](https://github.com/renovatebot/docker-renovate/blob/HEAD/docs/gitlab.md).
+For other self-hosted GitLab samples you can check the [Renovate Gitlab Configuration](https://github.com/renovatebot/docker-renovate/blob/HEAD/docs/gitlab.md).
 
-If you are using a self-hosted runner, please checkout the gitlab [docs](https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#docker) for Docker dind configuration.
+If you are using a self-hosted runner, please checkout the [GitLab docs for Docker DinD configuration](https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#use-the-docker-executor-with-the-docker-image-docker-in-docker).
