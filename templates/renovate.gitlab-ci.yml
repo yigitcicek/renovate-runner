@@ -1,3 +1,3 @@
 include: '/templates/_common.gitlab-ci.yml'
 
-image: renovate/renovate:25.58.1@sha256:ff090633fa43df1aa57f9d60f29201304c6ec40eacadec3e4d8770ba3a056a11
+image: renovate/renovate:25.59.0@sha256:6e8b50e434db0bc582b493301955730a3bc9bbdbdc3ae58897b3c86ceb74a3bb
