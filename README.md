@@ -53,7 +53,11 @@ services:
   - docker:19.03.15-dind
 ```
 
-Alternatively, if you cannot use the gitlab.com hosted or self-hosted privileged runners, include the following template instead:
+Alternatively, if you cannot use the gitlab.com hosted or self-hosted privileged runners, include the following template instead.
+
+**Note:** This will use the full renovate image, which isn't capable of respecting any binary contraints.
+It will always use the latest tools to update lock files.
+So please prefer the DinD version.
 
 ```yaml
 include:
@@ -66,7 +70,7 @@ To prevent unexpected changes in your pipeline, you can pin the version of this 
 ```yaml
 include:
   - project: 'renovate-bot/renovate-runner'
-    file: '/templates/renovate.gitlab-ci.yml'
+    file: '/templates/renovate-dind.gitlab-ci.yml'
     ref: v1.0.0
 ```
 
