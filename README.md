@@ -104,6 +104,7 @@ Because the default pipeline only runs on schedules, you need to use the `play` 
 ## Other config options
 
 We've changed some renovate defaults for GitLab to better reflect the app's default behavior, so please see [here](./templates/_common.gitlab-ci.yml#L1) for changed options.
+For renovate configuration basics checkout the official self-hosting [docs](https://docs.renovatebot.com/self-hosting/#configuration).
 
 For other self-hosted GitLab samples you can check the [Renovate Gitlab Configuration](https://github.com/renovatebot/docker-renovate/blob/HEAD/docs/gitlab.md).
 
