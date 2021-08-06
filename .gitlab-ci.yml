@@ -14,7 +14,7 @@ renovate:dry-run:
     - renovate --dry-run=true $RENOVATE_EXTRA_FLAGS
 
 release:
-  image: renovate/node:14.17.4@sha256:ed139766bef7f872d001168d6d04f0db00876b3dd1726f2c5a43ec987d0ab66c
+  image: renovate/node:14.17.4@sha256:b5a09746f5b0659c70e6bf701e50c3d475c0e0cecfd5c4eaecc25aabeafad0cb
   stage: release
   before_script:
     - npm ci
