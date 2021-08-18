@@ -6,21 +6,21 @@ stages:
   - release
 
 renovate:dry-run:
-  only:
-    - branches@renovate-bot/renovate-runner
-  except:
-    - schedules
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
   script:
     - renovate --dry-run=true $RENOVATE_EXTRA_FLAGS
 
 release:
   image: renovate/node:14.17.5@sha256:f04dbd5a28f36c5b947c4a4773b5b1cf50e6ca3469ee4fbd0fea1acb48dc3cd5
   stage: release
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-renovate-release
+    paths:
+      - node_modules/**
   before_script:
     - npm ci
   script:
     - npx --no-install semantic-release
-  only:
-    - main
-  except:
-    - schedules
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE == "push"'
