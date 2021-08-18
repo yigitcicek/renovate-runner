@@ -24,8 +24,8 @@ default:
 renovate:
   stage: deploy
   resource_group: production
-  only:
-    - schedules
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
   script:
     - renovate $RENOVATE_EXTRA_FLAGS
   artifacts:
