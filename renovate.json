@@ -14,7 +14,7 @@
       ],
       "matchUpdateTypes": ["major"],
       "semanticCommitType": "feat",
-      "commitMessageSuffix": "<br/><br/>BREAKING CHANGE: Major update"
+      "commitBody": "BREAKING CHANGE: Major update"
     },
     {
       "description": "Trigger feature release for minor updates",
