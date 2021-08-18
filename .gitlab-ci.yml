@@ -14,10 +14,7 @@ renovate:dry-run:
 release:
   image: renovate/node:14.17.5@sha256:f04dbd5a28f36c5b947c4a4773b5b1cf50e6ca3469ee4fbd0fea1acb48dc3cd5
   stage: release
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}-renovate-release
-    paths:
-      - node_modules/**
+  cache: []
   before_script:
     - npm ci
   script:
