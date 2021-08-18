@@ -22,3 +22,5 @@ release:
     - npx --no-install semantic-release
   only:
     - main
+  except:
+    - schedules
