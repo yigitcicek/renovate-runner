@@ -5,7 +5,11 @@ stages:
   - deploy
   - release
 
-renovate:dry-run:
+renovate_dry-run:
+  variables:
+    RENOVATE_TOKEN: $CI_JOB_TOKEN
+    RENOVATE_USERNAME: $GITLAB_USER_LOGIN
+    RENOVATE_BRANCH_PREFIX: ${GITLAB_USER_LOGIN}-renovate/
   script:
     - renovate --dry-run=true $RENOVATE_EXTRA_FLAGS
   rules:
