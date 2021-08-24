@@ -6,11 +6,11 @@ stages:
   - release
 
 renovate:dry-run:
-  rules:
-    - if: '$CI_COMMIT_BRANCH'
-    - if: '$CI_PIPELINE_SOURCE == "external_pull_request_event"'
   script:
     - renovate --dry-run=true $RENOVATE_EXTRA_FLAGS
+  rules:
+    - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 release:
   image: renovate/node:14.17.5@sha256:f31e565f27fa2832e26be5376ea94ea93d5c69dbe949a65fcba990a364670483
