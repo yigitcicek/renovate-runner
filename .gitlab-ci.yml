@@ -8,6 +8,7 @@ stages:
 renovate:dry-run:
   rules:
     - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_PIPELINE_SOURCE == "external_pull_request_event"'
   script:
     - renovate --dry-run=true $RENOVATE_EXTRA_FLAGS
 
