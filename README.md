@@ -78,7 +78,7 @@ Please check this project's [Releases page](https://gitlab.com/renovate-bot/reno
 to find the latest release tags to reference.
 
 By default our pipeline only runs on schedules.
-If you want it to run on other events, see the [GitLab docs for `only`](https://docs.gitlab.com/ee/ci/yaml/index.html#only--except).
+If you want it to run on other events, see the [GitLab docs for `rules`](https://docs.gitlab.com/ee/ci/yaml/#rules).
 
 Example to run on schedules and pushes:
 
@@ -88,9 +88,9 @@ include:
     file: '/templates/renovate-dind.gitlab-ci.yml'
 
 renovate:
-  only:
-    - schedules
-    - pushes
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "push"'
 ``` 
 
 ## Configure the Schedule
