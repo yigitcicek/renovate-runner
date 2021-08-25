@@ -10,7 +10,9 @@ renovate_dry-run:
     RENOVATE_TOKEN: $CI_JOB_TOKEN
     RENOVATE_USERNAME: $GITLAB_USER_LOGIN
     RENOVATE_BRANCH_PREFIX: ${GITLAB_USER_LOGIN}-renovate/
+    RENOVATE_X_SERVER_VERSION: $CI_SERVER_VERSION
   script:
+    - echo "running on GitLab v${RENOVATE_X_SERVER_VERSION}
     - renovate --dry-run=true $RENOVATE_EXTRA_FLAGS
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
