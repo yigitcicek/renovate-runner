@@ -6,11 +6,11 @@ stages:
 
 renovate_dry-run:
   variables:
-    RENOVATE_TOKEN: $CI_JOB_TOKEN
     RENOVATE_USERNAME: $GITLAB_USER_LOGIN
     RENOVATE_BRANCH_PREFIX: ${GITLAB_USER_LOGIN}-renovate/
     RENOVATE_X_SERVER_VERSION: $CI_SERVER_VERSION
   script:
+    - export "RENOVATE_TOKEN=${CI_JOB_TOKEN}"
     - echo "running on GitLab v${RENOVATE_X_SERVER_VERSION}"
     - if [[ "$RENOVATE_TOKEN" == "$CI_JOB_TOKEN" ]]; then echo "using CI_JOB_TOKEN"; else echo "using RENOVATE_TOKEN"; fi
     - renovate --dry-run=true $RENOVATE_EXTRA_FLAGS
