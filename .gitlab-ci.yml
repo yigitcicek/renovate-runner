@@ -12,7 +12,7 @@ renovate_dry-run:
     RENOVATE_X_SERVER_VERSION: $CI_SERVER_VERSION
   script:
     - echo "running on GitLab v${RENOVATE_X_SERVER_VERSION}"
-    - if [[ "$RENOVATE_TOKEN" == "$CI_JOB_TOKEN"]]; then; echo using CI_JOB_TOKEN; else; using RENOVATE_TOKEN; fi
+    - if [[ "$RENOVATE_TOKEN" == "$CI_JOB_TOKEN" ]]; then; echo using CI_JOB_TOKEN; else; using RENOVATE_TOKEN; fi
     - renovate --dry-run=true $RENOVATE_EXTRA_FLAGS
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
