@@ -24,11 +24,13 @@ Without such a token, github.com's API will rate limit requests and make such lo
 Finally, you need to decide how your bot should decide which projects to run against.
 By default renovate won't find any repo, you need to choose one of the following options for `RENOVATE_EXTRA_FLAGS`.
 
-If you wish for your bot to run against *every* project which the `RENOVATE_TOKEN` PAT has access to, and onboard any projects which don't yet have a config, then add this variable: `RENOVATE_EXTRA_FLAGS=`: `--autodiscover=true`.
+If you wish for your bot to run against any project which the `RENOVATE_TOKEN` PAT has access to, but which already have a `renovate.json` or similar config file, then add this variable: `RENOVATE_EXTRA_FLAGS=`: `--autodiscover=true`.
+This will mean no new projects will be onboarded.
 
 However, we recommend you apply an `autodiscoverFilter` value like the following so that the bot does not run on any stranger's project it gets invited to: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --autodiscover-filter=group1/*`.
+Checkout renovate [docs](https://docs.renovatebot.com/gitlab-bot-security/) for more information about gitlab security.
 
-If you wish for your bot to run against any project which the `RENOVATE_TOKEN` PAT has access to, but which already have a `renovate.json` or similar config file, then add this variable: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --onboarding=false --autodiscover-filter=group1/*`. This will mean no new projects will be onboarded.
+If you wish for your bot to run against *every* project which the `RENOVATE_TOKEN` PAT has access to, and onboard any projects which don't yet have a config, then add this variable: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --onboarding=true --autodiscover-filter=group1/*`.
 
 If you wish to manually specify which projects that your bot runs again, then add this variable with a space-delimited set of project names: `RENOVATE_EXTRA_FLAGS`: `group1/repo5 user3/repo1`.
 
