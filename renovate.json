@@ -45,13 +45,6 @@
       "stabilityDays": 3
     },
     {
-      "description": "Allow renovate updates after 1 day",
-      "matchPackageNames": [
-        "renovate/renovate"
-      ],
-      "stabilityDays": 1
-    },
-    {
       "description": "Schedule digest updates daily",
       "matchUpdateTypes": ["digest"],
       "extends": ["schedule:daily"]
