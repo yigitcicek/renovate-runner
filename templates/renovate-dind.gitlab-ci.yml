@@ -1,6 +1,6 @@
 include: '/templates/_common.gitlab-ci.yml'
 
-image: renovate/renovate:27.28.0-slim@sha256:3763b60c7ef6f3adf39b576252b0beca61858ac31f55361f39497991d8d73903
+image: renovate/renovate:27.28.1-slim@sha256:e940403f03f24c008043b5fb63c60800a388159059a963192f1677ad892dfc3a
 
 services:
   - docker:20.10.9-dind@sha256:d20f0866ee1aca6b0eb7bc8bdb0d0c938721c7f79219b1d3bc1aa58666928586
