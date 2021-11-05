@@ -1,9 +1,9 @@
 include: '/templates/_common.gitlab-ci.yml'
 
-image: renovate/renovate:28.26.0-slim@sha256:c1ae56d3b93ea12dbef6b187b93ab16d11c5d08b616a932f6d04260303b0c63c
+image: ${CI_RENOVATE_IMAGE}
 
 services:
-  - docker:20.10.10-dind@sha256:4affae8ac27539b74e27ac4f2d6662902a328340c218336944bab7e482244cc4
+  - ${CI_RENOVATE_SERVICE}
 
 variables:
   DOCKER_DRIVER: overlay2
@@ -11,3 +11,5 @@ variables:
   DOCKER_TLS_VERIFY: 1
   DOCKER_TLS_CERTDIR: /certs
   DOCKER_CERT_PATH: /certs/client
+  CI_RENOVATE_SERVICE: docker:20.10.10-dind@sha256:4affae8ac27539b74e27ac4f2d6662902a328340c218336944bab7e482244cc4
+  CI_RENOVATE_IMAGE: renovate/renovate:28.26.0-slim@sha256:c1ae56d3b93ea12dbef6b187b93ab16d11c5d08b616a932f6d04260303b0c63c
