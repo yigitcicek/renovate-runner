@@ -3,7 +3,7 @@
   "extends": [
     "github>renovatebot/.github"
   ],
-  "gitLabAutomerge": true,
+  "platformAutomerge": true,
   "packageRules": [
     {
       "description": "Trigger breaking release for major updates",
