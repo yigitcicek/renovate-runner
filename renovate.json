@@ -4,7 +4,6 @@
     "github>renovatebot/.github"
   ],
   "gitLabAutomerge": true,
-  "automergeType": "pr",
   "packageRules": [
     {
       "description": "Trigger breaking release for major updates",
@@ -15,7 +14,8 @@
       ],
       "matchUpdateTypes": ["major"],
       "semanticCommitType": "feat",
-      "commitBody": "BREAKING CHANGE: Major update"
+      "commitBody": "BREAKING CHANGE: Major update",
+      "automergeType": "pr"
     },
     {
       "description": "Trigger feature release for minor updates",
@@ -25,7 +25,8 @@
         "renovate/node"
       ],
       "matchUpdateTypes": ["minor"],
-      "semanticCommitType": "feat"
+      "semanticCommitType": "feat",
+      "automergeType": "pr"
     },
     {
       "description": "Trigger fix release for patch updates",
@@ -35,7 +36,8 @@
         "renovate/node"
       ],
       "matchUpdateTypes": ["patch", "digest"],
-      "semanticCommitType": "fix"
+      "semanticCommitType": "fix",
+      "automergeType": "pr"
     },
     {
       "description": "Allow updates after 3 days (exclude renovate)",
