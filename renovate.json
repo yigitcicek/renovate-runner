@@ -4,6 +4,7 @@
     "github>renovatebot/.github"
   ],
   "gitLabAutomerge": true,
+  "automergeType": "pr",
   "packageRules": [
     {
       "description": "Trigger breaking release for major updates",
