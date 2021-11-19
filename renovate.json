@@ -9,8 +9,7 @@
       "description": "Trigger breaking release for major updates",
       "matchPackageNames": [
         "docker",
-        "renovate/renovate",
-        "renovate/node"
+        "renovate/renovate"
       ],
       "matchUpdateTypes": ["major"],
       "semanticCommitType": "feat",
@@ -21,8 +20,7 @@
       "description": "Trigger feature release for minor updates",
       "matchPackageNames": [
         "docker",
-        "renovate/renovate",
-        "renovate/node"
+        "renovate/renovate"
       ],
       "matchUpdateTypes": ["minor"],
       "semanticCommitType": "feat",
@@ -32,8 +30,7 @@
       "description": "Trigger fix release for patch updates",
       "matchPackageNames": [
         "docker",
-        "renovate/renovate",
-        "renovate/node"
+        "renovate/renovate"
       ],
       "matchUpdateTypes": ["patch", "digest"],
       "semanticCommitType": "fix",
