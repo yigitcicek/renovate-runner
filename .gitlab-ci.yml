@@ -13,7 +13,7 @@ renovate:dry-run:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 release:
-  image: renovate/node:16.13.0@sha256:035582a31efbf7d7913d24946cd14df30402ac9116a894a1aa42a861014123da
+  image: renovate/node:16.13.0@sha256:cfcb5c9d9e7504c25af445c55ad49209a28e80e845b776c6a56dd0d79cf5404d
   stage: release
   cache: []
   before_script:
