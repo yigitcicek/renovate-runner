@@ -3,7 +3,9 @@ include: '/templates/_common.gitlab-ci.yml'
 image: ${CI_RENOVATE_IMAGE}
 
 services:
-  - ${CI_RENOVATE_SERVICE}
+  - name: ${CI_RENOVATE_SERVICE}
+    alias: docker
+
 
 variables:
   DOCKER_DRIVER: overlay2
