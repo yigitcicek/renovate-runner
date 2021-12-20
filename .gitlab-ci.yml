@@ -1,5 +1,15 @@
 include: '/templates/renovate-dind.gitlab-ci.yml'
 
+variables:
+  RENOVATE_DOCKER_IMAGE_PREFIX: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/renovate
+  CI_IMAGE_NODE: renovate/node:16.13.1@sha256:8f4bc1bd2b2e539e54c0555462f00fe877ea67bc4edbc0364f87967b085f9f3f
+
+image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/${CI_RENOVATE_IMAGE}
+
+services:
+  - name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/${CI_RENOVATE_SERVICE}
+    alias: docker
+
 stages:
   - test
   - deploy
@@ -13,7 +23,7 @@ renovate:dry-run:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 release:
-  image: renovate/node:16.13.1@sha256:8f4bc1bd2b2e539e54c0555462f00fe877ea67bc4edbc0364f87967b085f9f3f
+  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/${CI_RENOVATE_NODE}
   stage: release
   cache: []
   before_script:
