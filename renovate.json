@@ -1,16 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>renovatebot/.github"
-  ],
+  "extends": ["github>renovatebot/.github"],
   "platformAutomerge": true,
   "packageRules": [
     {
       "description": "Trigger breaking release for major updates",
-      "matchPackageNames": [
-        "docker",
-        "renovate/renovate"
-      ],
+      "matchPackageNames": ["docker", "renovate/renovate"],
       "matchUpdateTypes": ["major"],
       "semanticCommitType": "feat",
       "commitBody": "BREAKING CHANGE: Major update",
@@ -18,29 +13,21 @@
     },
     {
       "description": "Trigger feature release for minor updates",
-      "matchPackageNames": [
-        "docker",
-        "renovate/renovate"
-      ],
+      "matchPackageNames": ["docker", "renovate/renovate"],
       "matchUpdateTypes": ["minor"],
       "semanticCommitType": "feat",
       "automergeType": "pr"
     },
     {
       "description": "Trigger fix release for patch updates",
-      "matchPackageNames": [
-        "docker",
-        "renovate/renovate"
-      ],
+      "matchPackageNames": ["docker", "renovate/renovate"],
       "matchUpdateTypes": ["patch", "digest"],
       "semanticCommitType": "fix",
       "automergeType": "pr"
     },
     {
       "description": "Allow updates after 3 days (exclude renovate)",
-      "excludePackageNames": [
-        "renovate/renovate"
-      ],
+      "excludePackageNames": ["renovate/renovate"],
       "separateMinorPatch": true,
       "stabilityDays": 3
     },
@@ -57,9 +44,7 @@
   "regexManagers": [
     {
       "description": "Update docker references in gitlab variables",
-      "fileMatch": [
-        "\\.gitlab-ci\\.yml$"
-      ],
+      "fileMatch": ["\\.gitlab-ci\\.yml$"],
       "matchStrings": [
         "CI_RENOVATE_IMAGE\\s*:\\s*(?<depName>renovate\\/renovate):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?",
         "CI_RENOVATE_SERVICE\\s*:\\s*(?<depName>docker):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
@@ -69,9 +54,7 @@
     }
   ],
   "gitlabci": {
-    "fileMatch": [
-      "\\.gitlab-ci\\.yml$"
-    ],
+    "fileMatch": ["\\.gitlab-ci\\.yml$"],
     "pinDigests": true
   }
 }

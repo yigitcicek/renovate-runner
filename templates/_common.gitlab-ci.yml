@@ -20,7 +20,6 @@ default:
     paths:
       - renovate/cache/renovate/repository/**/*.json
 
-
 renovate:
   stage: deploy
   resource_group: production
@@ -32,4 +31,4 @@ renovate:
     when: always
     expire_in: 1d
     paths:
-      - "$RENOVATE_LOG_FILE"
+      - '$RENOVATE_LOG_FILE'

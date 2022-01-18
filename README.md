@@ -30,7 +30,7 @@ This will mean no new projects will be onboarded.
 However, we recommend you apply an `autodiscoverFilter` value like the following so that the bot does not run on any stranger's project it gets invited to: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --autodiscover-filter=group1/*`.
 Checkout renovate [docs](https://docs.renovatebot.com/gitlab-bot-security/) for more information about gitlab security.
 
-If you wish for your bot to run against *every* project which the `RENOVATE_TOKEN` PAT has access to, and onboard any projects which don't yet have a config, then add this variable: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --onboarding=true --autodiscover-filter=group1/*`.
+If you wish for your bot to run against _every_ project which the `RENOVATE_TOKEN` PAT has access to, and onboard any projects which don't yet have a config, then add this variable: `RENOVATE_EXTRA_FLAGS`: `--autodiscover=true --onboarding=true --autodiscover-filter=group1/*`.
 
 If you wish to manually specify which projects that your bot runs again, then add this variable with a space-delimited set of project names: `RENOVATE_EXTRA_FLAGS`: `group1/repo5 user3/repo1`.
 
@@ -40,19 +40,19 @@ Create a `.gitlab-ci.yml` file in the repository like the following:
 
 ```yaml
 include:
-  - project: 'renovate-bot/renovate-runner'
-    file: '/templates/renovate-dind.gitlab-ci.yml'
+    - project: 'renovate-bot/renovate-runner'
+      file: '/templates/renovate-dind.gitlab-ci.yml'
 ```
 
 If you are using a custom GitLab Kubernetes runner you probably need to downgrade the Docker DinD service because of [containerd/containerd#4837](https://github.com/containerd/containerd/issues/4837)
 
 ```yaml
 include:
-  - project: 'renovate-bot/renovate-runner'
-    file: '/templates/renovate-dind.gitlab-ci.yml'
+    - project: 'renovate-bot/renovate-runner'
+      file: '/templates/renovate-dind.gitlab-ci.yml'
 
 services:
-  - docker:19.03.15-dind
+    - docker:19.03.15-dind
 ```
 
 Alternatively, if you cannot use the gitlab.com hosted or self-hosted privileged runners, include the following template instead.
@@ -63,17 +63,17 @@ So please prefer the DinD version.
 
 ```yaml
 include:
-  - project: 'renovate-bot/renovate-runner'
-    file: '/templates/renovate.gitlab-ci.yml'
+    - project: 'renovate-bot/renovate-runner'
+      file: '/templates/renovate.gitlab-ci.yml'
 ```
 
 To prevent unexpected changes in your pipeline, you can pin the version of this template and include it in your Renovate updates:
 
 ```yaml
 include:
-  - project: 'renovate-bot/renovate-runner'
-    file: '/templates/renovate-dind.gitlab-ci.yml'
-    ref: v1.0.0
+    - project: 'renovate-bot/renovate-runner'
+      file: '/templates/renovate-dind.gitlab-ci.yml'
+      ref: v1.0.0
 ```
 
 Please check this project's [Releases page](https://gitlab.com/renovate-bot/renovate-runner/-/releases)
@@ -86,14 +86,14 @@ Example to run on schedules and pushes:
 
 ```yaml
 include:
-  - project: 'renovate-bot/renovate-runner'
-    file: '/templates/renovate-dind.gitlab-ci.yml'
+    - project: 'renovate-bot/renovate-runner'
+      file: '/templates/renovate-dind.gitlab-ci.yml'
 
 renovate:
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-    - if: '$CI_PIPELINE_SOURCE == "push"'
-``` 
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule"'
+        - if: '$CI_PIPELINE_SOURCE == "push"'
+```
 
 ## Configure the Schedule
 
