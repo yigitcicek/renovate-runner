@@ -15,9 +15,14 @@ renovate:dry-run:
 release:
   image: renovate/node:16.13.2@sha256:dcbbcf37dd8a6de7a80020dd44197afc6564a1a7dd2a50fb089be1d5d259b3f3
   stage: release
-  cache: []
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
   before_script:
-    - npm ci
+    - npm ci --cache .npm --prefer-offline
   script:
     - npx --no-install semantic-release
   rules:
